@@ -1,0 +1,168 @@
+ <html> 
+   <head> 
+      <title>Calendar</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+<!--
+/* This is our current day marker */
+ 
+#current_day { background-color:yellow; font-weight: bold; } 
+-->
+
+h1 {
+    color: red;
+    font-size: 30px;
+}
+li {
+    display: inline;
+}
+</style>
+</head>
+<body>
+<div class="background">
+<div class="transbox">
+<center>
+
+<br>
+<h1>Calendar</h1>
+<h4> Enter the name of Employee: </h4>
+<input name="empname" placeholder="Enter the Name">
+<button>Submit</button>
+<script type="text/javascript">
+<!-- Begin Hiding
+var today = new Date();
+var month = today.getMonth();
+//Using the Date prototype to assign our month names-->
+Date.prototype.getMonthNames = function() { return [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]; }
+//Getting the number of day in the month.-->
+Date.prototype.getDaysInMonth = function() 
+{ return new Date( this.getFullYear(), this.getMonth() + 1, 0 ).getDate(); }
+Date.prototype.calendar = function()
+{  var numberOfDays = this.getDaysInMonth();
+//This will be the starting day to our calendar-->
+var startingDay = new Date(this.getFullYear(), this.getMonth(), 1).getDay();
+//We will build the calendar_table variable then pass what we build back-->
+   var calendarTable = '<table summary="Calendar" class="calendar" style="text-align: center;">';
+calendarTable += '<caption>' + this.getMonthNames()[this.getMonth()] + '&nbsp;' + this.getFullYear() + '</caption>';
+calendarTable += '<tr><td colspan="7"></td></tr>';
+calendarTable += '<tr>';
+calendarTable += '<td><font color="#B42600">S</font></td>';
+calendarTable += '<td>M</td>';
+calendarTable += '<td>T</td>';
+calendarTable += '<td>W</td>';
+calendarTable += '<td>TH</td>';
+calendarTable += '<td>F</td>';
+calendarTable += '<td>S</td></tr>'; 
+//Lets create blank boxes until we get to the day which actually starts the month-->
+for ( var i = 0; i < startingDay; i++ ) 
+{ calendarTable += '<td>&nbsp;</td>'; }
+
+var border = startingDay;
+//For each day in the month, insert it into the calendar-->
+for ( var id = '',  i = 1; i <= numberOfDays; i++ ) 
+{ if (( month == month ) && ( today.getDate() == i )) { id = 'id="current_day"'; } 
+else { id = ''; }
+calendarTable += '<td ' + id + '>' + i + '</td>'; border++;
+if ((( border % 7 ) == 0 ) && ( i < numberOfDays )) 
+{ 
+//Time to make new row, if there are any days left.-->
+calendarTable += '<tr></tr>'; } } 
+//All the days have been used up, so pad the empty days until the end of calendar-->
+while(( border++ % 7)!= 0) 
+{ calendarTable += '<td>&nbsp;</td>'; } 
+//Finish the table-->
+calendarTable += '</table>';
+//Return it-->
+return calendarTable; }
+//--> Let's add up some dynamic effect
+window.onload = function() {
+selected_month = '<form name="month_holder">';
+selected_month += '<select id="month_items" size="1" onchange="month_picker();">';
+for ( var x = 0; x <= today.getMonthNames().length; x++ ) { selected_month += '<option value="' + today.getMonthNames()[x] + ' 1, ' + today.getFullYear() + '">' + today.getMonthNames()[x] + '</option>'; }
+selected_month += '</select></form>';
+actual_calendar = document.getElementById('show_calendar');
+actual_calendar.innerHTML = today.calendar();
+var month_listing = document.getElementById('current_month');
+month_listing.innerHTML = selected_month;
+actual_month = document.getElementById('month_items');
+actual_month.selectedIndex = month;
+}
+
+function month_picker()
+{ 
+  month_menu = new Date(actual_month.value);
+  actual_calendar.innerHTML = month_menu.calendar();
+}
+
+</script>
+<p>&nbsp</p>
+<div id="show_calendar">&nbsp;</div>
+<div id="current_month">&nbsp;</div>
+
+<div class = "button">
+<button><a href="Page2.html">Back</a></button>
+</div>
+</center>
+</div></div>
+<style>
+.button {
+    padding: 5px 20px;
+    background: orange;
+    position: relative;
+    float:left;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    position:relative;
+}
+.button:after {
+    content: " ";
+    border: solid transparent;
+    border-width: 0;
+    border-left-color: orange;
+    position: absolute;
+    -webkit-transition: all 1s ease;
+    left: 100%;
+    top: 50%;
+}
+.button:hover:after {
+    content: " ";
+    display:block;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-left-color: orange;
+    border-width: 25px;
+    margin-top: -25px;
+    margin-left: -10px;
+}
+div.background {
+  background: url(cal.jpg);
+  
+ 
+}
+
+div.transbox {
+  margin: 30px;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border: 0px solid black;
+  opacity: 0.8;
+  
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+</style>
+</body>
+</html>
