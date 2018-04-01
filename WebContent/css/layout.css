@@ -1,0 +1,151 @@
+body{
+	background-color: #ffff66; /*yellow*/
+}
+title{ 
+	color: #ffff66; font: 12px tahoma; /*Wtf is this*/
+}
+header{
+	padding-left: 50px; /* moves logo by 50 pixel */
+}
+.logo{
+	height: 60px; /*logo size */
+}
+section{
+	font-size: 25;
+  color: #ff6600;
+	font-family: Ariel;
+	text-align: left; /* Size,align and face of bullet text */
+	padding-left: 1000px;
+  padding-top: 100px;
+	border-width: 10px; /* Thickness of the bullet */
+}
+
+
+nav:hover{
+	opacity: 1.0;
+}
+//signup
+aside{
+    position: absolute;
+    left:50%;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+.cancelbtn,.signupbtn {
+    float: left;
+    width: 50%;
+}
+.container {
+    padding: 16px;
+}
+input[type=text], input[type=password], select[id=country] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #ffffb3;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+ul {
+    list-style-type: none;
+    margin: 25;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ff9900;
+    text-align: right;
+    opacity: 0.8;
+    }
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px; 
+}
+li a:hover:not(.active) {
+  opacity: 0.4;
+    background-color: #e68a00;
+}
+.logout{
+  float: right;
+}
+
+
+div.transbox {
+  margin: 30px;
+  width: 100%;
+  
+    border: 0px solid black;
+  opacity: 0.8;
+  
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+.right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+.center {
+    text-align: center;
+    border: 3px solid #73AD21;
+    margin: auto;
+    padding: 10px;
+    }
+    input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+.h2 {
+    color: black;
+    font-size: 30px;
+}
+.p {
+    font-size: 16px;
+}
+.li {
+    display: inline;
+}

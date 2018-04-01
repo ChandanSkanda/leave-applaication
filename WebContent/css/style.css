@@ -1,0 +1,11 @@
+body{
+  background-color: #ffff66;
+  
+}
+
+
+#calendarContainer,
+#organizerContainer {  
+  float: left;
+  padding-left: 50px;
+}

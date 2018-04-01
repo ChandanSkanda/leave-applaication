@@ -1,0 +1,52 @@
+package servletProgram;
+import java.sql.*;
+import java.util.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.DriverManager;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.sun.corba.se.pept.transport.Connection;
+
+/**
+ * Servlet implementation class servletProgramClass
+ */
+@WebServlet(
+		description = "For fun", 
+		urlPatterns = { 
+				"/servletProgramClass", 
+				"/Funny"
+		})
+public class servletProgramClass extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		PrintWriter w = response.getWriter();
+		String usr = request.getParameter("usr");
+		
+		w.print("<h1>Heelo "+usr+"</h1><br><center>This is a servlet</center>");
+		
+	}	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		PrintWriter w = response.getWriter();
+		String usr = request.getParameter("usr");
+		String prof = request.getParameter("prof");
+		if(prof.equals("e"))
+		{
+		w.print("<h1>Heelo "+usr+"</h1><br><center>This is a servlet</center>");
+		}
+		else
+		{
+		w.print("You are useless");
+		}
+	
